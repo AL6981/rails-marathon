@@ -1,0 +1,38 @@
+<h1>New House Form</h1>
+
+<%= form_for @house do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <% if @house.errors[:name] %>
+     <p><small><%= @house.errors[:name].join(", ") %>
+   <% end %>
+</p>
+
+<p>
+  <%=f.label :author %>
+  <%= f.text_area :author %>
+  <% if @house.errors[:author] %>
+     <p><small><%= @house.errors[:author].join(", ") %>
+   <% end %>
+</p>
+
+<p>
+  <%=f.label :source %>
+  <%= f.text_area :source %>
+  <% if @house.errors[:source] %>
+     <p><small><%= @house.errors[:source].join(", ") %>
+   <% end %>
+</p>
+
+<p>
+  <%=f.label :motto %>
+  <%= f.text_area :motto %>
+  <% if @house.errors[:motto] %>
+     <p><small><%= @house.errors[:motto].join(", ") %>
+   <% end %>
+</p>
+
+  <%= f.submit 'Add House' %>
+
+<% end %>

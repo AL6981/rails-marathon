@@ -1,0 +1,28 @@
+<h1><%= "New House #{@house.name} Member Form" %></h1>
+
+<%= form_for [@house, @member] do |f|%>
+<% if @member.errors.size > 0 %>
+  <ul>
+    <% @member.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+  <p>
+    <%= f.label :first_name, "First Name" %>
+    <%= f.text_field :first_name %>
+    <% if @member.errors[:member] %>
+      <p><small><%= @member.errors[:member].join(",") %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :last_name, "Last Name" %>
+    <%= f.text_field :last_name %>
+    <% if @member.errors[:member] %>
+      <p><small><%= @member.errors[:member].join(",") %>
+    <% end %>
+  </p>
+
+    <p><%= f.submit 'Add Member' %></p>
+<% end %>
